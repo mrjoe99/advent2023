@@ -26,7 +26,6 @@ def extract_numerical_calibration_values(input):
     digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
     for line in input:
-        temp = ""
         line_values = []
         for x in range(0, len(line)):
             if line[x] in digits:
@@ -36,35 +35,14 @@ def extract_numerical_calibration_values(input):
 
     return values
 
-def sum_and_print_values(values):
-    sum = int()
-
-    for value in values:
-        sum += value
-
-    print(sum)
-
-def calculate_totals(input):
-    totals = []
-    sum = 0
-
-    for line in input:
-        if line != '':
-            sum += int(line)
-        else:
-            totals.append(sum)
-            sum = 0
-    
-    return totals
-
 def find_text(line):
     values = []
     current_index = 0
     iteration = 0
 
-    three_slice = line[current_index: current_index + 3]
-    four_slice = line[current_index: current_index + 4]
-    five_slice = line[current_index: current_index + 5]
+    three_slice = line[current_index: current_index + 3] # 3 letter words: one, two, six
+    four_slice = line[current_index: current_index + 4]  # 4 letter words: four, five, nine
+    five_slice = line[current_index: current_index + 5]  # 5 letter words: three, seven, eight
 
     while current_index <= len(line):
         if iteration > 0:
@@ -177,7 +155,7 @@ def find_text(line):
                 break
             values.append(["8", index])
         
-        if (three_slice != "one" and three_slice != "two" and three_slice != "six" and
+        if (three_slice != "one" and three_slice != "two" and three_slice != "six" and # nudge 'current_index' forward by 1 if word not matched
             four_slice != "four" and four_slice != "five" and four_slice != "nine" and
             five_slice != "three" and five_slice != "seven" and five_slice != "eight"):
             iteration += 1
@@ -201,6 +179,14 @@ def convert_to_integers(sorted):
 
     return values
 
+def sum_and_print_values(values):
+    sum = int()
+
+    for value in values:
+        sum += value
+
+    print(sum)
+
 
 if __name__ == '__main__':
     input = get_input()
@@ -217,8 +203,8 @@ if __name__ == '__main__':
     sorted_values = []
 
     for line in values:
-        sorted_values.append(sorted(line, key=lambda x: x[1]))
-    
+        sorted_values.append(sorted(line, key=lambda x: x[1])) # sort 2-dimensional list by 2nd index => sort on y for [[a, y], [b, y], [c, y]]
+
     values = convert_to_integers(sorted_values)
     sum = sum_and_print_values(values)
 
