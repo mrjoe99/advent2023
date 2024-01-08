@@ -2,7 +2,7 @@ import os
 
 ABSOLUTE_PATH = os.path.dirname(__file__)
 DAY = os.path.basename(__file__).split('_')[1].split(".")[0]
-EXAMPLE = True
+EXAMPLE = False
 
 def get_input():
     file = f'{ABSOLUTE_PATH}\\advent_data_{DAY}.txt'
@@ -27,18 +27,19 @@ def get_input():
     games = []
 
     for game in range(0, len(input)):
-        for match in range(0, len(input[game])):
-            matches = []
+        matches = []
 
+        for match in range(0, len(input[game])):
+            
             for value in range(0, len(input[game][match])):
-                reveal = {}
+                draw = {}
 
                 temp = input[game][match][value].split(' ')
-                reveal[temp[1]] = int(temp[0])
+                draw[temp[1]] = int(temp[0])
 
-                matches.append(reveal)
+                matches.append(draw)
 
-            games.append(matches)
+        games.append(matches)
 
     return games
 
