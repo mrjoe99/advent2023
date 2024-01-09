@@ -84,7 +84,6 @@ if __name__ == '__main__':
         sum += count
 
     print(sum)
-    print("DEBUG")
 
 #### PART 1 ####
     

@@ -1,7 +1,7 @@
 import os
 
 ABSOLUTE_PATH = os.path.dirname(__file__)
-DAY = 4
+DAY = 5
 
 file = f'{ABSOLUTE_PATH}\\advent_data_{DAY}.txt'
 example_file = f'{ABSOLUTE_PATH}\\example_advent_data_{DAY}.txt'
