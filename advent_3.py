@@ -5,10 +5,10 @@ DAY = os.path.basename(__file__).split('_')[1].split(".")[0]
 EXAMPLE = False
 
 def get_input():
-    file = f'{ABSOLUTE_PATH}\\advent_data_{DAY}.txt'
+    file = f'{ABSOLUTE_PATH}/advent_data_{DAY}.txt'
 
     if EXAMPLE:
-        file = f'{ABSOLUTE_PATH}\\example_advent_data_{DAY}.txt'
+        file = f'{ABSOLUTE_PATH}/example_advent_data_{DAY}.txt'
 
     input = []
 

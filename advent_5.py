@@ -26,10 +26,10 @@ class Maps(object):
 
 
 def get_input():
-    file = f'{ABSOLUTE_PATH}\\advent_data_{DAY}.txt'
+    file = f'{ABSOLUTE_PATH}/advent_data_{DAY}.txt'
 
     if EXAMPLE:
-        file = f'{ABSOLUTE_PATH}\\example_advent_data_{DAY}.txt'
+        file = f'{ABSOLUTE_PATH}/example_advent_data_{DAY}.txt'
 
     input = []
 
@@ -49,7 +49,9 @@ def parse_input(input):
         seeds = [int(x) for x in input[0][7:].split(" ")]
 
         counter = 0
+
         for x in range(2, len(input)):
+            
             if "map" in input[x]:
                 names.append([input[x][:-5], 0, counter]) # name, range, starting index
             elif input[x] != '':

@@ -9,9 +9,9 @@ def get_input():
     temp = ""
 
     if EXAMPLE:
-        file = f'{ABSOLUTE_PATH}\\example_advent_data_{DAY}.txt'
+        file = f'{ABSOLUTE_PATH}/example_advent_data_{DAY}.txt'
     else:
-        file = f'{ABSOLUTE_PATH}\\advent_data_{DAY}.txt'
+        file = f'{ABSOLUTE_PATH}/advent_data_{DAY}.txt'
 
     with open(file, 'r') as input:
         temp = []
