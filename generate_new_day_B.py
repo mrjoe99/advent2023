@@ -18,4 +18,4 @@ with open(file, "w") as outfile:
     for line in new_file_text:
         outfile.write(line)
 
-print(f"[COMPLETE] Day {day}B generated.")
+print(f"\n[COMPLETE] Day {day}B generated.")

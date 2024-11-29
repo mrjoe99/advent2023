@@ -27,4 +27,4 @@ with open(file, "w") as outfile:
     for line in new_day_text:
         outfile.write(line)
 
-print(f"[COMPLETE] Day {day}A generated.")
+print(f"\n[COMPLETE] Day {day}A generated.")
