@@ -231,5 +231,3 @@ if __name__ == '__main__':
     print(f"ANSWER: {calculate_sum(ratios)}")
 
     print(f"[COMPLETE] {__file__}")
-
-    # 33585858 too low
