@@ -202,4 +202,6 @@ if __name__ == '__main__':
     numbers = convert_numbers(numbers, digits)
     numbers = remove_non_symbol_adjacent(numbers, symbols)
 
-    calculate_sum(numbers)
+    print(f"ANSWER: {calculate_sum()}")
+
+    print(f"\n[COMPLETE] {__file__}")

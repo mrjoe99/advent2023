@@ -15,8 +15,8 @@ def get_input(file):
 
 if __name__ == '__main__':
     file = f'{ABSOLUTE_PATH}/advent_data_{DAY}.txt'
-    example_file = f'{ABSOLUTE_PATH}/example_advent_data_{DAY}.txt'
+    file = f'{ABSOLUTE_PATH}/example_advent_data_{DAY}.txt'
 
-    input = get_input(example_file)
+    input = get_input(file)
 
     print(f"[COMPLETE] {__file__}")

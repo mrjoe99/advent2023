@@ -2,7 +2,6 @@ import os
 
 ABSOLUTE_PATH = os.path.dirname(__file__)
 DAY = os.path.basename(__file__).split('_')[1].split(".")[0]
-EXAMPLE = True
 
 class Maps(object):
     def __init__(self, name, dest_ranges, source_ranges, range_lengths):
@@ -25,12 +24,7 @@ class Maps(object):
         self.name = self.name[0]
 
 
-def get_input():
-    file = f'{ABSOLUTE_PATH}/advent_data_{DAY}.txt'
-
-    if EXAMPLE:
-        file = f'{ABSOLUTE_PATH}/example_advent_data_{DAY}.txt'
-
+def get_input(file):
     input = []
 
     with open(file, 'r') as infile:
@@ -67,12 +61,16 @@ def parse_input(input):
 
 
 if __name__ == '__main__':
-    input = get_input()
+    file = f'{ABSOLUTE_PATH}/advent_data_{DAY}.txt'
+    file = f'{ABSOLUTE_PATH}/example_advent_data_{DAY}.txt'
+
+    input = get_input(file)
     seeds, names, dest_ranges, source_ranges, range_lengths = parse_input(input)
     maps_collection = {}
     
     for name in names:
         maps_collection[name[0]] = Maps(name, dest_ranges, source_ranges, range_lengths)
 
-    
-    print("DEBUG")
+    #print(f"ANSWER: {}")
+
+    print(f"\n[COMPLETE] {__file__}")

@@ -2,7 +2,7 @@ import os
 
 ABSOLUTE_PATH = os.path.dirname(__file__)
 
-day = 0
+day = 5
 
 while os.path.exists(f"{ABSOLUTE_PATH}/advent_{day}_A.py"):
     day += 1

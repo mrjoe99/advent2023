@@ -1,7 +1,7 @@
 import os
 
 ABSOLUTE_PATH = os.path.dirname(__file__)
-#DAY = os.path.basename(__file__).split('_')[1].split(".")[0]
+DAY = os.path.basename(__file__).split('_')[1].split(".")[0]
 
 def get_input(file):
     input = []
@@ -215,8 +215,8 @@ def calculate_sum(ratios):
 
 
 if __name__ == '__main__':
-    file = f'{ABSOLUTE_PATH}/advent_data_3.txt'
-    #file = f'{ABSOLUTE_PATH}/example_advent_data_3.txt'
+    file = f'{ABSOLUTE_PATH}/advent_data_{DAY}.txt'
+    #file = f'{ABSOLUTE_PATH}/example_advent_data_{DAY}.txt'
 
     non_symbols = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "."]
     digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
@@ -230,4 +230,4 @@ if __name__ == '__main__':
 
     print(f"ANSWER: {calculate_sum(ratios)}")
 
-    print(f"[COMPLETE] {__file__}")
+    print(f"\n[COMPLETE] {__file__}")
