@@ -19,4 +19,4 @@ if __name__ == '__main__':
 
     input = get_input(file)
 
-    print(f"[COMPLETE] {__file__}")
+    print(f"\n[COMPLETE] {__file__}")

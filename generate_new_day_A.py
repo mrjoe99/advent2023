@@ -17,7 +17,7 @@ file = open(example_file, "w")
 file.close()
 
 new_day_text = []
-with open(f"{ABSOLUTE_PATH}/new_day_A.txt", "r") as infile:
+with open(f"{ABSOLUTE_PATH}/new_day.txt", "r") as infile:
     for line in infile:
         new_day_text.append(line)
 
