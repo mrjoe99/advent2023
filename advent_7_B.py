@@ -44,14 +44,18 @@ def classify_hands(hands):
 
     for x, hand in enumerate(hands):
         count = {}
+        jokers = 0
 
         for letter in hand[0]:
+            if letter == 'J':
+                jokers += 1
+
             if letter not in count.keys():
                 count[letter] = 1
             else:
                 count[letter] += 1
 
-        rank = determine_type(count)
+        rank = determine_type(count, jokers)
         
         if rank not in classifications.keys():
             classifications[rank] = []
@@ -60,27 +64,31 @@ def classify_hands(hands):
 
     return classifications
     
-def determine_type(count):
-    if len(count) == 1:
+def determine_type(count, jokers):
+    length = len(count) - jokers
+    if length < 1:
+        length = 1
+
+    if length == 1:
         return type_strength["five_of_a_kind"]
     
-    elif len(count) == 2:
+    elif length == 2:
         for card_type in count:
             if count[card_type] == 4:
                 return type_strength["four_of_a_kind"]
             elif count[card_type] == 3:
                 return type_strength["full_house"]
             
-    elif len(count) == 3:
+    elif length == 3:
         for card_type in count:
             if count[card_type] == 3:
                 return type_strength["three_of_a_kind"]
         return type_strength["two_pair"]
     
-    elif len(count) == 4:
+    elif length == 4:
         return type_strength["one_pair"]
     
-    elif len(count) == 5:
+    elif length == 5:
         return type_strength["high_card"]
 
 def sort_hands(hands):
@@ -160,3 +168,5 @@ if __name__ == '__main__':
     
     print(f"ANSWER: {calculate_winnings(ranked_hands)}")
     print(f"\n[COMPLETE] {__file__}")
+
+    # 220560961, too low
