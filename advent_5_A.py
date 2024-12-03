@@ -3,25 +3,33 @@ import os
 ABSOLUTE_PATH = os.path.dirname(__file__)
 DAY = os.path.basename(__file__).split('_')[1].split(".")[0]
 
-class Maps(object):
-    def __init__(self, name, dest_ranges, source_ranges, range_lengths):
-        self.name = name
+class AlmanacMap(object):
+    def __init__(self, names, dest_ranges, source_ranges, range_lengths):
+        self.names = names
         self._dest_ranges = dest_ranges
         self._source_ranges = source_ranges
         self._range_lengths = range_lengths
-        self._custom_map = []
-        self._populate_map()
+        self._custom_maps = {}
+        self._populate_maps()
 
-    def _populate_map(self):
-        for x in range(self.name[2], self.name[1]): # index range of map
-            source = self._source_ranges[x]
-            destination = self._dest_ranges[x]
-            range_length = range_lengths[x]
+    def _populate_maps(self):
+        x = 0
+        # name = [name, range, starting index]
+        for name in self.names:
+            
+            for y in range(name[2], name[1]): # index range of map
+                destination = self._dest_ranges[y]
+                source = self._source_ranges[y]
+                range_length = range_lengths[y]
 
-            for y in range(0, range_length):
-                self._custom_map.append([source + y, destination + y])
+                for z in range(0, range_length):
+                    if name[0] not in self._custom_maps.keys():
+                        self._custom_maps[name[0]] = {'destinations': [], 'sources': []}
 
-        self.name = self.name[0]
+                    self._custom_maps[name[0]]['destinations'].append(destination + z)
+                    self._custom_maps[name[0]]['sources'].append(source + z)
+
+                x += 1
 
 
 def get_input(file):
@@ -66,10 +74,8 @@ if __name__ == '__main__':
 
     input = get_input(file)
     seeds, names, dest_ranges, source_ranges, range_lengths = parse_input(input)
-    maps_collection = {}
     
-    for name in names:
-        maps_collection[name[0]] = Maps(name, dest_ranges, source_ranges, range_lengths)
+    maps_collection = AlmanacMap(names, dest_ranges, source_ranges, range_lengths)
 
     #print(f"ANSWER: {}")
 
